@@ -47,7 +47,7 @@ async function generateIndex(){
   
     writeFileSync(
       path.resolve("./news/index.json"),
-      JSON.stringify(index, null, 2),
+      JSON.stringify(index.sort((a,b)=>b.added_on - a.added_on), null, 2),
       { encoding: "utf-8" }
     );
     console.log(`Generated ${index.length} indexes`);
